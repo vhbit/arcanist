@@ -34,6 +34,8 @@ function id($x) {
  *                  $default is returned without raising a warning.
  */
 function idx(array $array, $key, $default = null) {
+  $key = $key ?? '';
+
   // isset() is a micro-optimization - it is fast but fails for null values.
   if (isset($array[$key])) {
     return $array[$key];
@@ -148,6 +150,7 @@ function mpull(array $list, $method, $key_method = null) {
     } else {
       $value = $object;
     }
+    $key = $key ?? '';
     $result[$key] = $value;
   }
   return $result;
@@ -222,6 +225,7 @@ function ppull(array $list, $property, $key_property = null) {
     } else {
       $value = $object;
     }
+    $key = $key ?? '';
     $result[$key] = $value;
   }
   return $result;
@@ -270,6 +274,7 @@ function ipull(array $list, $index, $key_index = null) {
     } else {
       $value = $array;
     }
+    $key = $key ?? '';
     $result[$key] = $value;
   }
   return $result;
